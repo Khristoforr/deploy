@@ -22,8 +22,12 @@ def show_main_page(request):
     return render(request, 'statistic/index.html', context=context)
 
 def show_smth(request):
-    player = Player.objects.order_by('-stats1__pts')[:5]
-    context = {'players': player}
+    oilers = Player.objects.filter(team='Oilers')
+    loko = Player.objects.filter(team='Lokomotiv')
+    bears = Player.objects.filter(team='Bears')
+    context = {'oilers': oilers,
+               'loko': loko,
+               'bears': bears}
     return render(request, 'statistic/Статистика-общая.html', context=context)
     # return HttpResponse("Страница")
 
