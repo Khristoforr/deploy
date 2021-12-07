@@ -9,3 +9,9 @@ services:
       - "8000:8000"
     entrypoint:
       - ./entrypoint.sh
+  postgresql:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432:
